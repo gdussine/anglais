@@ -1,0 +1,14 @@
+<ion-content>
+  <div id="title">
+    <p>Selectionnez une liste de mot</p>
+  </div>
+  <div id="content" >
+    <div class="carre" *ngFor="let list of lists" [routerLink]="['/jeu/'+list.id]">
+      <p>{{list.name}}</p>
+      <p>{{list.words.length}}</p>
+
+    </div>
+  </div>
+
+
+</ion-content>

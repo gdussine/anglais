@@ -1,0 +1,25 @@
+<ion-content>
+  <ion-progress-bar color="primary" value="{{index/this.listToGuess.length}}"></ion-progress-bar>
+  <div id="word">
+    <p *ngIf="listToGuess[index] !== undefined">{{listToGuess[index].fr}}</p>
+  </div>
+  <div id="mode" class="action" [ngStyle]="{visibility: this.modeVisibility}">
+    <ion-button size="large" (click)="onModeDuo()">Duo</ion-button>
+    <ion-button size="large" (click)="onModeCarre()">Carré</ion-button>
+    <ion-button size="large" (click)="onModeCash()">Cash</ion-button>
+  </div>
+  <div id="duo" class="action" [ngStyle]="{visibility: this.duoVisibility}">
+    <ion-button size="large" color="secondary" *ngFor="let duoAnswer of duoAnswers" (click)="reponseButton(duoAnswer, 1)">{{duoAnswer.eng}}</ion-button>
+  </div>
+  <div id="carre" class="action" [ngStyle]="{visibility: this.carreVisibility}">
+    <ion-button size="large" color="secondary" *ngFor="let carreAnswer of carreAnswers" (click)="reponseButton(carreAnswer, 2)">{{carreAnswer.eng}}</ion-button>
+  </div>
+  <div id="cash" class="action" [ngStyle]="{visibility: this.cashVisibility}">
+    <form (submit)="reponseInput()">
+      <ion-input [(ngModel)]="cashAnswer" name="cash" placeholder="Enter Input"></ion-input>
+        <ion-button size="large" color="secondary" (click)="reponseInput()">Valider</ion-button>
+    </form>
+
+
+  </div>
+</ion-content>

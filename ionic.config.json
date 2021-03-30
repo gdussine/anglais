@@ -1,0 +1,8 @@
+{
+  "name": "easy-vocab",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}
