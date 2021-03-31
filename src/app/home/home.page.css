@@ -1,10 +1,4 @@
-$cream: #FFFACA;
-$Mikado_Yellow: #FFC500;
-$safety_orange: #FD6202;
-$dark_red: #881600;
-$dark_bean: #4E0110;
-
-#title{
+#title {
   margin: 10%;
   position: absolute;
   top: 20%;
@@ -13,34 +7,32 @@ $dark_bean: #4E0110;
   text-align: center;
   font-family: Pacifico;
   font-size: 50px;
-
-  color: $safety_orange;
+  color: #FD6202;
   text-shadow: 1px 1px 1px black;
 }
 
-#menu{
+#menu {
   position: absolute;
   top: 40%;
   left: 0;
   right: 0;
 }
 
-.bouttons{
+.bouttons {
   outline-color: #0d0d0d;
   border-color: #0d0d0d;
   --ion-background-color: blue(#fffff);
-
   color: #0d0d0d;
   margin-bottom: 10px;
-  navbutton_home_hovered: adjust-hue($dark_red,10);//ça marche pas
+  navbutton_home_hovered: #882d00;
 }
 
-.logo{
+.logo {
   height: 100px;
 }
 
-ion-content{
-
-  --ion-background-color: #FFFACA;// jsp pk la variable sass marche pas ici, donc j'ai mis le code hexa
+ion-content {
+  --ion-background-color: #FFFACA;
 }
 
+/*# sourceMappingURL=home.page.css.map */

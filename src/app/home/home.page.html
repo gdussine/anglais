@@ -1,11 +1,17 @@
 <ion-content [fullscreen]="true">
-<div id="title">
-  <h1>Easy Vocab</h1>
-</div>
-<div id="menu">
-  <ion-button expand="block" size="large" fill="outline" [routerLink]="['/selection']">Jouer</ion-button>
-  <ion-button expand="block" size="large" fill="outline">Importer</ion-button>
-  <ion-button expand="block" size="large" fill="outline">Options</ion-button>
-</div>
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Pacifico">
+  <ion-header>
+    <div id="title">
+      <img src="assets/crown.svg" class="logo" >
+      <h1 class="big_title">Crown</h1>
+    </div>
+  </ion-header>
+
+        <div id="menu">
+          <ion-button class="bouttons" expand="block" size="large" fill="outline" color="danger" [routerLink]="['/selection']">Jouer</ion-button>
+          <ion-button class="bouttons" expand="block" size="large" fill="outline" color="danger">Importer</ion-button>
+          <ion-button class="bouttons" expand="block" size="large" fill="outline" color="danger">Options</ion-button>
+        </div>
 
 </ion-content>
