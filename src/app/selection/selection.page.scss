@@ -1,6 +1,13 @@
+$cream: #FFFACA;
+$Mikado_Yellow: #FFC500;
+$safety_orange: #FD6202;
+$dark_red: #881600;
+$dark_bean: #4E0110;
+
 #title{
   margin: auto;
   text-align: center;
+  color: $safety_orange;
 }
 
 .carre{
@@ -9,5 +16,11 @@
   width: 30%;
   padding: 5% 0 5% 0;
   margin:  4% 1.6% 4% 1.6%;
-  border: gray 1px dashed;
+  border: $dark_red 1px dashed;
+  color: $dark_red;
+}
+
+ion-content{
+
+  --ion-background-color: #FFFACA;// jsp pk la variable sass marche pas ici, donc j'ai mis le code hexa
 }

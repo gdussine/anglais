@@ -1,0 +1,21 @@
+#title {
+  margin: auto;
+  text-align: center;
+  color: #FD6202;
+}
+
+.carre {
+  text-align: center;
+  display: inline-block;
+  width: 30%;
+  padding: 5% 0 5% 0;
+  margin: 4% 1.6% 4% 1.6%;
+  border: #881600 1px dashed;
+  color: #881600;
+}
+
+ion-content {
+  --ion-background-color: #FFFACA;
+}
+
+/*# sourceMappingURL=selection.page.css.map */

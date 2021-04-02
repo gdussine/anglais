@@ -11,11 +11,8 @@ $dark_bean: #4E0110;
   left: 0;
   right: 0;
   text-align: center;
-  font-family: Pacifico;
-  font-size: 50px;
 
-  color: $safety_orange;
-  text-shadow: 1px 1px 1px black;
+
 }
 
 #menu{
@@ -42,5 +39,21 @@ $dark_bean: #4E0110;
 ion-content{
 
   --ion-background-color: #FFFACA;// jsp pk la variable sass marche pas ici, donc j'ai mis le code hexa
+}
+.big_title{
+  text-shadow: 1px 1px 1px black;
+  text-align: center;
+  font-family: Pacifico;
+  font-size: 60px;
+  color: $safety_orange;
+}
+.queen{
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 72%;
+
+  height: 11em;
 }
 

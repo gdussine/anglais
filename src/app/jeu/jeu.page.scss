@@ -1,3 +1,10 @@
+$cream: #FFFACA;
+$Mikado_Yellow: #FFC500;
+$safety_orange: #FD6202;
+$dark_red: #881600;
+$dark_bean: #4E0110;
+
+
 #word{
   position: absolute;
   top: 27%;
@@ -5,6 +12,7 @@
   right: 0;
   text-align: center;
   font-size: xx-large;
+  color: $safety_orange;
 }
 .action{
   position: absolute;
@@ -17,4 +25,7 @@
   font-size: x-large;
 }
 
+ion-content{
 
+  --ion-background-color: #FFFACA;// jsp pk la variable sass marche pas ici, donc j'ai mis le code hexa
+}
