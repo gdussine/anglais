@@ -3,6 +3,7 @@ import {Word, WordList, WordsService} from '../words.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PopoverController} from '@ionic/angular';
 import {ScorePage} from '../score/score.page';
+import {NativeAudio} from '@ionic-native/native-audio/ngx';
 
 @Component({
   selector: 'app-jeu',
@@ -30,7 +31,8 @@ export class JeuPage implements OnInit {
     private route: ActivatedRoute,
     private wordsService: WordsService,
     private router: Router,
-    private popoverController: PopoverController) {
+    private popoverController: PopoverController,
+    private nativeAudio: NativeAudio) {
   }
 
   ngOnInit() {
@@ -98,7 +100,9 @@ export class JeuPage implements OnInit {
   reponseInput(){
     if (this.cashAnswer === this.listToGuess[this.index].eng){
       this.score = this.score + 4;
+      this.play_correct();
     } else{
+      this.play_wrong();
     }
     this.cashAnswer = '';
     this.next();
@@ -107,7 +111,9 @@ export class JeuPage implements OnInit {
   reponseButton(answer: Word, pt: number){
     if (answer.eng === this.listToGuess[this.index].eng){
       this.score = this.score + pt;
+      this.play_correct();
     } else{
+      this.play_wrong();
     }
     this.next();
   }
@@ -151,6 +157,23 @@ export class JeuPage implements OnInit {
 
 
 
+  IonViewWillEnter(){
+    this.nativeAudio.preloadSimple('correct_sound', 'assets/sounds/Correct_Answer.mp3');
+    this.nativeAudio.preloadSimple('wrong_sound', 'assets/sounds/Wrong_Answer.mp3');
+  }
+
+  play_correct(){
+    this.nativeAudio.play('correct_sound');
+  }
+
+  play_wrong(){
+    this.nativeAudio.play('wrong_sound');
+  }
+
+  IonViewWillLeave(){
+    this.nativeAudio.unload('correct_sound');
+    this.nativeAudio.unload('wrong_sound');
+  }
 
 
 }

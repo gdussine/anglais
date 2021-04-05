@@ -25,6 +25,5 @@ export class HomePage implements OnInit{
   }
 
   ngOnInit(){
-    this.nativeAudio.preloadSimple('correct_sound', 'sounds/Correct_Answer.mp3');
   }
 }
