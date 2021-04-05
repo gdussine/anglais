@@ -3,7 +3,10 @@ import {Word, WordList, WordsService} from '../words.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PopoverController} from '@ionic/angular';
 import {ScorePage} from '../score/score.page';
-import {NativeAudio} from '@ionic-native/native-audio/ngx';
+
+import {JeuService} from '../jeu.service';
+import {AudioService} from '../audio.service';
+
 
 @Component({
   selector: 'app-jeu',
@@ -18,6 +21,7 @@ export class JeuPage implements OnInit {
   duoVisibility = 'hidden';
 
   score = 0;
+  scoreFinal = 0;
 
   cashAnswer: string;
 
@@ -32,11 +36,14 @@ export class JeuPage implements OnInit {
     private wordsService: WordsService,
     private router: Router,
     private popoverController: PopoverController,
-    private nativeAudio: NativeAudio) {
+    private jeuService: JeuService,
+    private audioService: AudioService) {
   }
 
   ngOnInit() {
     this.initGame();
+    this.audioService.preload('correct', 'assets/sounds/Correct_Answer.mp3');
+    this.audioService.preload('wrong', 'assets/sounds/Wrong_Answer.mp3');
   }
 
   initGame(){
@@ -93,16 +100,20 @@ export class JeuPage implements OnInit {
     if (this.index < this.listToGuess.length){
       this.initSet();
     } else {
-      this.presentPopover().then((x) => this.initGame());
+      this.scoreFinal = this.score + 0;
+      this.presentPopover().then((x) => {
+        this.jeuService.setScore(this.list.name, this.scoreFinal);
+        this.initGame();
+      });
     }
   }
 
   reponseInput(){
     if (this.cashAnswer === this.listToGuess[this.index].eng){
       this.score = this.score + 4;
-      this.play_correct();
+      this.audioService.play('correct');
     } else{
-      this.play_wrong();
+      this.audioService.play('wrong');
     }
     this.cashAnswer = '';
     this.next();
@@ -111,9 +122,10 @@ export class JeuPage implements OnInit {
   reponseButton(answer: Word, pt: number){
     if (answer.eng === this.listToGuess[this.index].eng){
       this.score = this.score + pt;
-      this.play_correct();
+      this.audioService.play('correct');
     } else{
-      this.play_wrong();
+
+      this.audioService.play('wrong');
     }
     this.next();
   }
@@ -156,24 +168,6 @@ export class JeuPage implements OnInit {
   }
 
 
-
-  IonViewWillEnter(){
-    this.nativeAudio.preloadSimple('correct_sound', 'assets/sounds/Correct_Answer.mp3');
-    this.nativeAudio.preloadSimple('wrong_sound', 'assets/sounds/Wrong_Answer.mp3');
-  }
-
-  play_correct(){
-    this.nativeAudio.play('correct_sound');
-  }
-
-  play_wrong(){
-    this.nativeAudio.play('wrong_sound');
-  }
-
-  IonViewWillLeave(){
-    this.nativeAudio.unload('correct_sound');
-    this.nativeAudio.unload('wrong_sound');
-  }
 
 
 }
