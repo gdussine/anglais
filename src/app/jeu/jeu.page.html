@@ -3,6 +3,7 @@
   <div id="word">
     <p *ngIf="listToGuess[index] !== undefined">{{listToGuess[index].fr}}</p>
   </div>
+  <img src="assets/queen_borderless.svg" class="queen">
   <div id="mode" class="action" [ngStyle]="{visibility: this.modeVisibility}">
     <ion-button size="large" (click)="onModeDuo()">Duo</ion-button>
     <ion-button size="large" (click)="onModeCarre()">Carré</ion-button>

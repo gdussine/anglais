@@ -24,4 +24,13 @@ ion-content {
   --ion-background-color: #FFFACA;
 }
 
+.queen {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 72%;
+  height: 11em;
+}
+
 /*# sourceMappingURL=jeu.page.css.map */

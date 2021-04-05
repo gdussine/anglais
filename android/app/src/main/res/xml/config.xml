@@ -7,6 +7,10 @@
   <access origin="*" />
 
 
+  <feature name="NativeAudio">
+    <param name="android-package" value="com.rjfun.cordova.plugin.nativeaudio.NativeAudio"/>
+  </feature>
+
   <preference
     name="ScrollEnabled"
     value="false" />

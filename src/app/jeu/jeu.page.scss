@@ -29,3 +29,14 @@ ion-content{
 
   --ion-background-color: #FFFACA;// jsp pk la variable sass marche pas ici, donc j'ai mis le code hexa
 }
+
+.queen{
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 72%;
+
+  height: 11em;
+}
+
