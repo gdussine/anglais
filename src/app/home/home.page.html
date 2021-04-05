@@ -9,9 +9,9 @@
   </ion-header>
 
         <div id="menu">
-          <ion-button class="bouttons" expand="block" size="large" fill="outline" color="danger" [routerLink]="['/selection']">Jouer</ion-button>
-          <ion-button class="bouttons" expand="block" size="large" fill="outline" color="danger">Importer</ion-button>
-          <ion-button class="bouttons" expand="block" size="large" fill="outline" color="danger">Options</ion-button>
+          <ion-button class="bouttons" expand="block" size="large" fill="outline" color="danger" [routerLink]="['/selection']" (click)="play_correct()">Jouer</ion-button>
+          <ion-button class="bouttons" expand="block" size="large" fill="outline" color="danger" (click)="play_correct()" >Importer</ion-button>
+          <ion-button class="bouttons" expand="block" size="large" fill="outline" color="danger" (click)="play_correct()">Options</ion-button>
         </div>
   <img src="assets/queen_borderless.svg" class="queen">
 
