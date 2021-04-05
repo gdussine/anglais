@@ -7,6 +7,7 @@ export interface Word{
 
 export interface WordList {
   id: number;
+  score: number;
   name: string;
   words: Word[];
 }
@@ -20,6 +21,7 @@ export class WordsService {
     {
       id: 1,
       name: 'Nombre',
+      score: 0,
       words: [{fr: 'un', eng: 'one'}, {fr: 'deux', eng: 'two'}, {fr: 'trois', eng: 'three'}, {fr: 'quatre', eng: 'four'}, {fr: 'cinq', eng: 'five'}, {fr: 'six', eng: 'six'}]
     }
   ];

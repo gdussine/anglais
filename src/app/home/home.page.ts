@@ -1,6 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {WordsService} from '../words.service';
 import { NativeAudio } from '@ionic-native/native-audio/ngx';
+import {AudioService} from '../audio.service';
+import {ScorePage} from '../score/score.page';
+import {PopoverController} from '@ionic/angular';
+import {OptionsPage} from '../options/options.page';
 
 @Component({
   selector: 'app-home',
@@ -10,21 +14,26 @@ import { NativeAudio } from '@ionic-native/native-audio/ngx';
 export class HomePage implements OnInit{
 
 
-  constructor(private nativeAudio: NativeAudio) { }
-
-  IonViewWillEnter(){
-    this.nativeAudio.preloadSimple('correct_sound', 'assets/sounds/Correct_Answer.mp3');
-  }
+  constructor(private audioService: AudioService, private popoverController: PopoverController) { }
 
   play_correct(){
-    this.nativeAudio.play('correct_sound');
-  }
-
-  IonViewWillLeave(){
-    this.nativeAudio.unload('correct_sound');
+    this.audioService.play('correct_sound');
   }
 
   ngOnInit(){
-    this.nativeAudio.preloadSimple('correct_sound', 'sounds/Correct_Answer.mp3');
+    this.audioService.preload('correct_sound', 'assets/sounds/Correct_Answer.mp3');
+  }
+
+  async optionPopover() {
+    const popover = await this.popoverController.create({
+      component: OptionsPage,
+      cssClass: 'my-custom-class',
+      translucent: true
+    });
+    return await popover.present();
+  }
+
+  option_click() {
+    this.optionPopover();
   }
 }

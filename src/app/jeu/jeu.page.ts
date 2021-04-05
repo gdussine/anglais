@@ -3,6 +3,8 @@ import {Word, WordList, WordsService} from '../words.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PopoverController} from '@ionic/angular';
 import {ScorePage} from '../score/score.page';
+import {JeuService} from '../jeu.service';
+import {AudioService} from '../audio.service';
 
 @Component({
   selector: 'app-jeu',
@@ -17,6 +19,7 @@ export class JeuPage implements OnInit {
   duoVisibility = 'hidden';
 
   score = 0;
+  scoreFinal = 0;
 
   cashAnswer: string;
 
@@ -30,11 +33,15 @@ export class JeuPage implements OnInit {
     private route: ActivatedRoute,
     private wordsService: WordsService,
     private router: Router,
-    private popoverController: PopoverController) {
+    private popoverController: PopoverController,
+    private jeuService: JeuService,
+    private audioService: AudioService) {
   }
 
   ngOnInit() {
     this.initGame();
+    this.audioService.preload('correct', 'assets/sounds/Correct_Answer.mp3');
+    this.audioService.preload('wrong', 'assets/sounds/Wrong_Answer.mp3');
   }
 
   initGame(){
@@ -91,14 +98,20 @@ export class JeuPage implements OnInit {
     if (this.index < this.listToGuess.length){
       this.initSet();
     } else {
-      this.presentPopover().then((x) => this.initGame());
+      this.scoreFinal = this.score + 0;
+      this.presentPopover().then((x) => {
+        this.jeuService.setScore(this.list.name, this.scoreFinal);
+        this.initGame();
+      });
     }
   }
 
   reponseInput(){
     if (this.cashAnswer === this.listToGuess[this.index].eng){
       this.score = this.score + 4;
+      this.audioService.play('correct');
     } else{
+      this.audioService.play('wrong');
     }
     this.cashAnswer = '';
     this.next();
@@ -107,7 +120,9 @@ export class JeuPage implements OnInit {
   reponseButton(answer: Word, pt: number){
     if (answer.eng === this.listToGuess[this.index].eng){
       this.score = this.score + pt;
+      this.audioService.play('correct');
     } else{
+      this.audioService.play('wrong');
     }
     this.next();
   }
