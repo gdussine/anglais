@@ -30,7 +30,7 @@ export class ImportPage implements OnInit {
         // this.readfile(this.returnpath);
         fetch(this.returnpath).then(res => res.json()).then(json => {
           this.content = json;
-          this.audioservice.preload('congratulations', 'assets/sounds/congratulations');
+          this.audioservice.preload('congratulations', 'assets/sounds/congratulations.mp3');
           this.audioservice.play('congratulations');
         });
       });
