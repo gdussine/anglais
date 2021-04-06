@@ -16,6 +16,7 @@ export interface WordList {
   providedIn: 'root'
 })
 export class WordsService {
+  currentId: number;
 
   lists: WordList[] = [
     {
@@ -27,10 +28,20 @@ export class WordsService {
   ];
 
   constructor() {
-
+    this.currentId = 1;
   }
 
   getList(id: number): WordList{
     return this.lists.find((x) => x.id === id );
+  }
+  addList(name: string, content: string ){
+    this.currentId++;
+    const wordlist: WordList = {
+      id: this.currentId,
+      name,
+      score: 0,
+      words: null
+    };
+    this.lists.push(wordlist);
   }
 }
