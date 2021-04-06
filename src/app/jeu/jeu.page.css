@@ -33,4 +33,8 @@ ion-content {
   height: 11em;
 }
 
+ion-progress-bar {
+  --ion-color-primary: #FD6202;
+}
+
 /*# sourceMappingURL=jeu.page.css.map */

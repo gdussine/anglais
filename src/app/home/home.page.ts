@@ -5,6 +5,7 @@ import {AudioService} from '../audio.service';
 import {ScorePage} from '../score/score.page';
 import {PopoverController} from '@ionic/angular';
 import {OptionsPage} from '../options/options.page';
+import {ImportPage} from '../import/import.page';
 
 @Component({
   selector: 'app-home',
@@ -24,6 +25,20 @@ export class HomePage implements OnInit{
     this.audioService.preload('correct_sound', 'assets/sounds/Correct_Answer.mp3');
   }
 
+  async importPopover() {
+    const popover = await this.popoverController.create({
+      component: ImportPage,
+      cssClass: 'my-custom-class',
+      translucent: true
+    });
+    return await popover.present();
+  }
+
+
+  import_click() {
+    this.importPopover();
+  }
+
   async optionPopover() {
     const popover = await this.popoverController.create({
       component: OptionsPage,
@@ -32,6 +47,7 @@ export class HomePage implements OnInit{
     });
     return await popover.present();
   }
+
 
   option_click() {
     this.optionPopover();

@@ -3,8 +3,10 @@ import {Word, WordList, WordsService} from '../words.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PopoverController} from '@ionic/angular';
 import {ScorePage} from '../score/score.page';
+
 import {JeuService} from '../jeu.service';
 import {AudioService} from '../audio.service';
+
 
 @Component({
   selector: 'app-jeu',
@@ -122,6 +124,7 @@ export class JeuPage implements OnInit {
       this.score = this.score + pt;
       this.audioService.play('correct');
     } else{
+
       this.audioService.play('wrong');
     }
     this.next();
@@ -163,7 +166,6 @@ export class JeuPage implements OnInit {
     this.hideAllMode();
     this.cashVisibility = 'visible';
   }
-
 
 
 
