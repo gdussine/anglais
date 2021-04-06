@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NativeAudio } from '@ionic-native/native-audio/ngx';
 import { FileChooser } from '@ionic-native/file-chooser/ngx';
+import { FilePath } from '@ionic-native/file-path/ngx';
+import { File } from '@ionic-native/file/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,6 +18,8 @@ import { FileChooser } from '@ionic-native/file-chooser/ngx';
   providers: [
     NativeAudio,
     FileChooser,
+    FilePath,
+    File,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
