@@ -19,7 +19,7 @@ export class UserService {
 
 
   loadUser(name: string): Promise<User>{
-    return this.http.get('http://localhost:8080/users/' + name).toPromise().then( data => {
+    return this.http.get('https://tncy-crown.herokuapp.com/users/' + name).toPromise().then( data => {
       const user = data as User;
       this.config.setUser(user);
       return user;

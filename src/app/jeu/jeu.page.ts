@@ -3,8 +3,6 @@ import {Word, WordList, WordsService} from '../words.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PopoverController} from '@ionic/angular';
 import {ScorePage} from '../score/score.page';
-
-import {JeuService} from '../jeu.service';
 import {AudioService} from '../audio.service';
 import {RankService} from '../rank.service';
 
@@ -37,7 +35,6 @@ export class JeuPage implements OnInit {
     private wordsService: WordsService,
     private router: Router,
     private popoverController: PopoverController,
-    private jeuService: JeuService,
     private audioService: AudioService,
     private rankService: RankService) {
   }
@@ -104,7 +101,6 @@ export class JeuPage implements OnInit {
     } else {
       this.scoreFinal = this.score + 0;
       this.presentPopover().then((x) => {
-        this.jeuService.setScore(this.list.name, this.scoreFinal);
         this.rankService.addScore(this.list.id, this.scoreFinal);
         this.initGame();
       });

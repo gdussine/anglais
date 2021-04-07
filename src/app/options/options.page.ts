@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AudioService} from '../audio.service';
-import {JeuService} from '../jeu.service';
 import {ConfigService} from '../config.service';
+import {UserService} from '../user.service';
+import {PopoverController} from '@ionic/angular';
 
 @Component({
   selector: 'app-options',
@@ -11,12 +12,18 @@ import {ConfigService} from '../config.service';
 export class OptionsPage implements OnInit {
 
   soundClass: string;
+  username: string;
 
 
-  constructor(private audioService: AudioService, private jeuService: JeuService, private configService: ConfigService) {
+  constructor(private audioService: AudioService,
+              private configService: ConfigService,
+              private userService: UserService,
+              private popoverController: PopoverController) {
+
   }
 
   ngOnInit() {
+    this.configService.getUser().then(x => {this.username = x.name;} );
     if (this.audioService.areSoundsEnabled()) {
       this.soundClass = 'volume-medium-outline';
     }
@@ -34,11 +41,8 @@ export class OptionsPage implements OnInit {
     this.audioService.toggleSoundsEnable();
   }
 
-  public reset_click(){
-    this.jeuService.reset();
-    console.log("cc");
-    this.configService.setUser(null).then(x => {
-      console.log(x);
-    });
+  public submit(){
+    this.userService.loadUser(this.username).then(x => this.popoverController.dismiss());
   }
+
 }
