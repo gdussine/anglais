@@ -15,7 +15,9 @@ export class ImportPage implements OnInit {
   filename: string;
   content: string;
 
-  constructor(private fileChooser: FileChooser, private file: File, private filePath: FilePath, private audioservice: AudioService) { }
+  constructor(private fileChooser: FileChooser, private file: File, private filePath: FilePath, private audioservice: AudioService) {
+    this.content = 'le contenu';
+  }
 
   ngOnInit() {
 

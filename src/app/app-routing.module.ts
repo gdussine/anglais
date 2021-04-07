@@ -31,6 +31,10 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then( m => m.AuthPageModule)
   },
+  {
+    path: 'rank/:id',
+    loadChildren: () => import('./rank/rank.module').then( m => m.RankPageModule)
+  },
 ];
 
 @NgModule({
