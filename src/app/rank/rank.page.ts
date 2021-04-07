@@ -8,9 +8,17 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./rank.page.scss'],
 })
 export class RankPage implements OnInit {
+  first: string;
+  second: string;
+  third: string;
+  fourth: string;
+  fifth: string;
 
   constructor(private rankService: RankService, private route: ActivatedRoute) { }
 
+  public getRanking(){
+    this.route.snapshot.paramMap.get('id');
+  }
   ngOnInit() {
   }
 
