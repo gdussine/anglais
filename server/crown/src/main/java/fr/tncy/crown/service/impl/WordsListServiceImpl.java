@@ -1,6 +1,7 @@
 package fr.tncy.crown.service.impl;
 
 import fr.tncy.crown.model.WordsList;
+import fr.tncy.crown.repository.WordsListRepository;
 import fr.tncy.crown.service.WordsListService;
 import org.springframework.stereotype.Service;
 
@@ -8,10 +9,17 @@ import java.util.List;
 
 @Service
 public class WordsListServiceImpl implements WordsListService {
+
+
+  private final WordsListRepository repository;
+
+  public WordsListServiceImpl(WordsListRepository repository){
+      this.repository = repository;
+  }
+
+
   @Override
   public List<WordsList> all() {
-    WordsList w = new WordsList();
-    w.setName("ok");
-    return List.of(w);
+    return repository.all();
   }
 }

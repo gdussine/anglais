@@ -1,7 +1,11 @@
 package fr.tncy.crown.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import fr.tncy.crown.mapper.RankingSerializer;
+
 import java.time.LocalDateTime;
 
+@JsonSerialize(using = RankingSerializer.class)
 public class Ranking {
 
   private User user;

@@ -25,7 +25,7 @@ public class UserController {
   @CrossOrigin(origins = "*")
   @GetMapping(value = "/users")
   @ResponseBody
-  public Set<User> all() {
+  public List<User> all() {
     return service.all();
   }
 
