@@ -1,9 +1,83 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>rank</ion-title>
+    <ion-title class="title">Classement</ion-title>
+    <ion-title class="subtitle">{{wordListName}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>1 </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-label>
+        <div class="line">
+          <p class="rank">Rang</p>
+          <p class="noms" style="width: 50%;">Nom</p>
+          <p class="scores">Score</p>
+        </div>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <div class="line">
+          <p class="rank">1</p>
+          <p class="noms">{{first}}</p>
+          <p class="scores">{{firstScore}}</p>
+        </div>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <div class="line">
+          <p class="rank">2</p>
+          <p class="noms">{{second}}</p>
+          <p class="scores">{{secondScore}}</p>
+        </div>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <div class="line">
+          <p class="rank">3</p>
+          <p class="noms">{{third}}</p>
+          <p class="scores">{{thirdScore}}</p>
+        </div>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <div class="line">
+          <p class="rank">4</p>
+          <p class="noms">{{fourth}}</p>
+          <p class="scores">{{fourthScore}}</p>
+        </div>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <div class="line">
+          <p class="rank">5</p>
+          <p class="noms">{{fifth}}</p>
+          <p class="scores">{{fifthScore}}</p>
+        </div>
+      </ion-label>
+    </ion-item>
+    <div *ngIf="!isInTheTop && isRanked">
+      <ion-item>
+        <div class="spacing">
+          <p>
+            ...
+          </p>
+        </div>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <div class="line">
+            <p class="rank">{{userRank}}</p>
+            <p class="noms">{{username}}</p>
+            <p class="scores">{{userScore}}</p>
+          </div>
+        </ion-label>
+      </ion-item>
+    </div>
+  </ion-list>
 </ion-content>

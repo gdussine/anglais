@@ -32,6 +32,10 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then( m => m.AuthPageModule)
   },
   {
+    path: 'selection_score',
+    loadChildren: () => import('./selection_score/selectionscore.module').then( m => m.SelectionScorePageModule)
+  },
+  {
     path: 'rank/:id',
     loadChildren: () => import('./rank/rank.module').then( m => m.RankPageModule)
   },

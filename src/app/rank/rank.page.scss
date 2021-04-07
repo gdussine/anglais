@@ -1,0 +1,50 @@
+$cream: #FFFACA;
+$Mikado_Yellow: #FFC500;
+$safety_orange: #FD6202;
+$dark_red: #881600;
+$dark_bean: #4E0110;
+
+.title{
+  font-size: large;
+  margin: auto;
+  text-align: center;
+  color: $safety_orange;
+}
+
+.subtitle{
+  font-size: medium;
+  text-align: center;
+  color: $safety_orange;
+}
+
+.line{
+  display: flex;
+}
+.noms{
+  text-align: center;
+  width: 65%;
+  color: $dark_red;
+  margin: auto;
+  font-size: medium;
+}
+
+.scores{
+  flex-grow: 1;
+  text-align: right;
+  font-size: medium;
+}
+
+.spacing{
+  display: flex;
+  margin: auto;
+  text-align: center;
+}
+
+ion-content{
+
+  --ion-background-color: #FFFACA;// jsp pk la variable sass marche pas ici, donc j'ai mis le code hexa
+}
+ion-header{
+
+  --ion-background-color: #FFFACA;// jsp pk la variable sass marche pas ici, donc j'ai mis le code hexa
+}
