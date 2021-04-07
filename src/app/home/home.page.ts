@@ -22,12 +22,12 @@ export class HomePage implements OnInit{
               private userService: UserService,
               private configService: ConfigService) { }
 
-  play_correct(){
-    this.audioService.play('correct_sound');
+  play_woosh(){
+    this.audioService.play('18');
   }
 
   ngOnInit(){
-    this.audioService.preload('correct_sound', 'assets/sounds/Correct_Answer.mp3');
+    this.audioService.preload('18', 'assets/sounds/whoosh-18.mp3');
   }
 
   async importPopover() {
@@ -42,6 +42,7 @@ export class HomePage implements OnInit{
 
   import_click() {
     this.importPopover();
+    this.play_woosh();
   }
 
   async optionPopover() {
@@ -56,5 +57,6 @@ export class HomePage implements OnInit{
 
   option_click() {
     this.optionPopover();
+    this.play_woosh();
   }
 }
