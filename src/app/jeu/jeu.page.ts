@@ -6,6 +6,7 @@ import {ScorePage} from '../score/score.page';
 
 import {JeuService} from '../jeu.service';
 import {AudioService} from '../audio.service';
+import {RankService} from '../rank.service';
 
 
 @Component({
@@ -37,7 +38,8 @@ export class JeuPage implements OnInit {
     private router: Router,
     private popoverController: PopoverController,
     private jeuService: JeuService,
-    private audioService: AudioService) {
+    private audioService: AudioService,
+    private rankService: RankService) {
   }
 
   ngOnInit() {
@@ -103,6 +105,7 @@ export class JeuPage implements OnInit {
       this.scoreFinal = this.score + 0;
       this.presentPopover().then((x) => {
         this.jeuService.setScore(this.list.name, this.scoreFinal);
+        this.rankService.addScore(this.list.id, this.scoreFinal);
         this.initGame();
       });
     }

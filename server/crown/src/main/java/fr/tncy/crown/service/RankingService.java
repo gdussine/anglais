@@ -7,7 +7,10 @@ import fr.tncy.crown.model.WordsList;
 import java.util.List;
 
 public interface RankingService {
-  public void reset(String name);
-  public void setScore(User user, WordsList wordsList, int score);
-  public List<Ranking> getTop(WordsList wordsList);
+
+  public Ranking byUserbyWordsList(int userId, int wordsList);
+  public List<Ranking> byWordsList(int wordsList);
+  public List<Ranking> byUser(int userId);
+  public void addOne(int userId, int wordsList, int score);
+  public List<Ranking> all();
 }

@@ -2,18 +2,22 @@ package fr.tncy.crown.repository.impl;
 
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import fr.tncy.crown.model.Ranking;
 import fr.tncy.crown.model.WordsList;
 import fr.tncy.crown.repository.RankingRepository;
+import org.springframework.stereotype.Repository;
 
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class RankingRepositoryImpl implements RankingRepository {
 
-  private List<RankingRepository> rankings;
+  private List<Ranking> rankings;
   private ObjectMapper mapper;
   private File rankingFile;
 
@@ -36,4 +40,19 @@ public class RankingRepositoryImpl implements RankingRepository {
     }
   }
 
+  @Override
+  public void update(Ranking ranking) {
+    rankings.remove(ranking);
+    rankings.add(ranking);
+    try {
+      FileWriter writer = new FileWriter(rankingFile);
+      mapper.writeValue(writer, rankingFile);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  public List<Ranking> all(){
+    return rankings;
+  }
 }

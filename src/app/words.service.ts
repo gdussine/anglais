@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 export interface Word{
   fr: string;
@@ -18,6 +19,7 @@ export interface WordList {
 export class WordsService {
   currentId: number;
 
+  /*
   lists: WordList[] = [
     {
       id: 1,
@@ -151,10 +153,15 @@ export class WordsService {
       score: 0,
       words: [{fr: 'un', eng: 'one'}, {fr: 'deux', eng: 'two'}, {fr: 'trois', eng: 'three'}, {fr: 'quatre', eng: 'four'}, {fr: 'cinq', eng: 'five'}, {fr: 'six', eng: 'six'}]
     }
-  ];
+  ];*/
 
-  constructor() {
+  lists: WordList[];
+
+  constructor(private http: HttpClient) {
     this.currentId = 1;
+    http.get('https://tncy-crown.herokuapp.com/wordslist').toPromise().then(data => {
+      this.lists = data as WordList[];
+    });
   }
 
   getList(id: number): WordList{
