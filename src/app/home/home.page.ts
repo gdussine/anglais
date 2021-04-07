@@ -6,6 +6,9 @@ import {ScorePage} from '../score/score.page';
 import {PopoverController} from '@ionic/angular';
 import {OptionsPage} from '../options/options.page';
 import {ImportPage} from '../import/import.page';
+import {UserService} from '../user.service';
+import {ConfigService} from '../config.service';
+import {strict} from 'assert';
 
 @Component({
   selector: 'app-home',
@@ -14,8 +17,10 @@ import {ImportPage} from '../import/import.page';
 })
 export class HomePage implements OnInit{
 
-
-  constructor(private audioService: AudioService, private popoverController: PopoverController) { }
+  constructor(private audioService: AudioService,
+              private popoverController: PopoverController,
+              private userService: UserService,
+              private configService: ConfigService) { }
 
   play_correct(){
     this.audioService.play('correct_sound');

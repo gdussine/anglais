@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AudioService} from '../audio.service';
 import {JeuService} from '../jeu.service';
+import {ConfigService} from '../config.service';
 
 @Component({
   selector: 'app-options',
@@ -12,7 +13,7 @@ export class OptionsPage implements OnInit {
   soundClass: string;
 
 
-  constructor(private audioService: AudioService, private jeuService: JeuService) {
+  constructor(private audioService: AudioService, private jeuService: JeuService, private configService: ConfigService) {
   }
 
   ngOnInit() {
@@ -35,5 +36,9 @@ export class OptionsPage implements OnInit {
 
   public reset_click(){
     this.jeuService.reset();
+    console.log("cc");
+    this.configService.setUser(null).then(x => {
+      console.log(x);
+    });
   }
 }
