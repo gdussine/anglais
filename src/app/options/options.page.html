@@ -1,5 +1,7 @@
 <div class="popover">
   <p><ion-icon name="{{this.soundClass}}" (click)="sound_click()"></ion-icon></p>
-  <p><ion-button (click)="reset_click()">Reset Scores</ion-button></p>
-
+  <form (submit)="submit()">
+    <ion-input name="username" [(ngModel)]="username" placeholder="{{this.username}}"></ion-input>
+    <ion-button type="submit">Login</ion-button>
+  </form>
 </div>
