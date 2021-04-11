@@ -8,6 +8,5 @@ public interface RankingRepository {
 
   public void update(Ranking ranking);
   public List<Ranking> all();
-
-
+  public void reset();
 }

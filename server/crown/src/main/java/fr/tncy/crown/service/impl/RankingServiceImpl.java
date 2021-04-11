@@ -61,6 +61,11 @@ public class RankingServiceImpl implements RankingService {
   }
 
   @Override
+  public void reset(){
+    repository.reset();
+  }
+
+  @Override
   public List<Ranking> all() {
     return repository.all();
   }

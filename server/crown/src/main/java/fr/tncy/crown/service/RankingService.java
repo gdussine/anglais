@@ -13,4 +13,6 @@ public interface RankingService {
   public List<Ranking> byUser(int userId);
   public void addOne(int userId, int wordsList, int score);
   public List<Ranking> all();
+
+  public void reset();
 }
