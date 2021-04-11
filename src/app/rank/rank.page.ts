@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Ranking, RankService} from '../rank.service';
 import {ActivatedRoute} from '@angular/router';
 import {ConfigService} from '../config.service';
+import {UserService} from '../user.service';
 
 @Component({
   selector: 'app-rank',
@@ -28,7 +29,7 @@ export class RankPage implements OnInit {
   userRank: number;
   userScore: number;
 
-  constructor(private rankService: RankService, private route: ActivatedRoute, private configService: ConfigService) { }
+  constructor(private rankService: RankService, private route: ActivatedRoute, private configService: ConfigService, private userService: UserService) { }
 
   public getRanking(){
     this.id = +this.route.snapshot.paramMap.get('id');
@@ -51,19 +52,19 @@ export class RankPage implements OnInit {
         console.log(Error.message);
       }
       try{
-        this.first = rankings[0].userId.toString();
+        this.userService.byId(rankings[0].userId).then(user => this.first = user.name);
         this.firstScore = rankings[0].score.toString();
         //
-        this.second = rankings[1].userId.toString();
+        this.userService.byId(rankings[1].userId).then(user => this.second = user.name);
         this.secondScore = rankings[1].score.toString();
         //
-        this.third = rankings[2].userId.toString();
+        this.userService.byId(rankings[2].userId).then(user => this.third = user.name);
         this.thirdScore = rankings[2].score.toString();
         //
-        this.fourth = rankings[3].userId.toString();
+        this.userService.byId(rankings[3].userId).then(user => this.fourth = user.name);
         this.fourthScore = rankings[3].score.toString();
         //
-        this.fifth = rankings[4].userId.toString();
+        this.userService.byId(rankings[4].userId).then(user => this.fifth = user.name);
         this.fifthScore = rankings[4].score.toString();
       }
       catch (Error){

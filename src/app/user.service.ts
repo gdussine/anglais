@@ -27,7 +27,7 @@ export class UserService {
   }
 
   byId(id: number): Promise<User>{
-    return this.http.get('http://localhost:8080/users/id/' + id).toPromise().then(data => {
+    return this.http.get('https://tncy-crown.herokuapp.com/users/id/' + id).toPromise().then(data => {
       const user = data as User;
       return user;
     });

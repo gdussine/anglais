@@ -19,6 +19,8 @@ $dark_bean: #4E0110;
 
 .line{
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .noms{
   text-align: center;
@@ -32,7 +34,7 @@ $dark_bean: #4E0110;
   flex-grow: 1;
   text-align: right;
   font-size: medium;
-  vertical-align: middle;
+  vertical-align: 45%;
 }
 
 .crown{
