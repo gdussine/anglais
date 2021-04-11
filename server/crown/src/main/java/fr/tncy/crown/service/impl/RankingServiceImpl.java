@@ -1,5 +1,7 @@
 package fr.tncy.crown.service.impl;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import fr.tncy.crown.model.Ranking;
 import fr.tncy.crown.model.User;
 import fr.tncy.crown.model.WordsList;
@@ -50,6 +52,11 @@ public class RankingServiceImpl implements RankingService {
   public void addOne(int userId, int wordsList, int score) {
     Ranking r = this.byUserbyWordsList(userId, wordsList);
     r.setScore(score);
+    try {
+      System.out.println(new ObjectMapper().writeValueAsString(r));
+    } catch (JsonProcessingException e) {
+      e.printStackTrace();
+    }
     repository.update(r);
   }
 

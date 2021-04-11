@@ -35,4 +35,12 @@ public class UserController {
   public User byName(@PathVariable(value = "name") String name) {
     return service.byName(name);
   }
+
+  @CrossOrigin(origins = "*")
+  @GetMapping(value = "/users/id/{id}")
+  @ResponseBody
+  public User byId(@PathVariable(value = "id") int id) {
+    return service.byId(id);
+  }
+
 }

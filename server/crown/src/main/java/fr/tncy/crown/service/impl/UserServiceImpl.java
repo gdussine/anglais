@@ -37,4 +37,9 @@ public class UserServiceImpl implements UserService {
     }
     return user;
   }
+
+  public User byId(int id){
+    User user = this.userRepository.all().stream().filter(x->x.getId()==id).findAny().orElse(null);
+    return user;
+  }
 }

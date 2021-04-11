@@ -26,4 +26,11 @@ export class UserService {
     });
   }
 
+  byId(id: number): Promise<User>{
+    return this.http.get('http://localhost:8080/users/id/' + id).toPromise().then(data => {
+      const user = data as User;
+      return user;
+    });
+  }
+
 }

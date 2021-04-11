@@ -27,10 +27,11 @@ public class RankingRepositoryImpl implements RankingRepository {
     mapper = new ObjectMapper();
     try {
       FileReader reader = new FileReader(rankingFile);
-      JavaType type = mapper.getTypeFactory().constructCollectionLikeType(List.class, WordsList.class);
+      JavaType type = mapper.getTypeFactory().constructCollectionLikeType(List.class, Ranking.class);
       rankings = mapper.readValue(reader, type);
       reader.close();
     } catch (IOException e) {
+      e.printStackTrace();
       try {
         rankingFile.createNewFile();
         rankings = new ArrayList<>();
@@ -46,7 +47,7 @@ public class RankingRepositoryImpl implements RankingRepository {
     rankings.add(ranking);
     try {
       FileWriter writer = new FileWriter(rankingFile);
-      mapper.writeValue(writer, rankingFile);
+      mapper.writeValue(writer, rankings );
     } catch (IOException e) {
       e.printStackTrace();
     }

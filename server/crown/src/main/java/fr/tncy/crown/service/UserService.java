@@ -10,4 +10,5 @@ public interface UserService{
 
   public User byName(String name);
 
+  public User byId(int id);
 }
