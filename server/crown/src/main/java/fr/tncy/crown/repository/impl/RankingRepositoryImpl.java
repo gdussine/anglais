@@ -56,4 +56,15 @@ public class RankingRepositoryImpl implements RankingRepository {
   public List<Ranking> all(){
     return rankings;
   }
+
+  @Override
+  public void reset() {
+    this.rankings = new ArrayList<>();
+    try {
+      FileWriter writer = new FileWriter(rankingFile);
+      mapper.writeValue(writer, rankings );
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
 }

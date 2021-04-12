@@ -43,5 +43,13 @@ public class RankingController {
     return rankingService.all();
   }
 
+  @CrossOrigin(origins = "*")
+  @RequestMapping(value = "/rank/reset", method = RequestMethod.GET)
+  @ResponseBody
+  public void reset() {
+    this.rankingService.reset();
+  }
+
+
 
 }
