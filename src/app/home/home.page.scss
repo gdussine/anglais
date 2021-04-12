@@ -4,22 +4,12 @@ $safety_orange: #FD6202;
 $dark_red: #881600;
 $dark_bean: #4E0110;
 
-#title{
-  margin: 10%;
-  position: absolute;
-  top: 20%;
-  left: 0;
-  right: 0;
-  text-align: center;
-
-
-}
 
 #menu{
-  position: absolute;
-  top: 35%;
+  position: relative;
   left: 0;
   right: 0;
+  z-index: 99;
 }
 
 .bouttons{
@@ -33,27 +23,61 @@ $dark_bean: #4E0110;
 }
 
 .logo{
-  height: 100px;
+  position: relative;
+  display: flex;
+
+  height: 30%;
+
+
+  left: 0;
+  right:0;
+  margin: 5% auto 0 auto;
+
+}
+
+.premier_row{
+  height: 140px;
 }
 
 ion-content{
 
   --ion-background-color: #FFFACA;// jsp pk la variable sass marche pas ici, donc j'ai mis le code hexa
 }
+
+ion-grid{
+  position: relative;
+  height: 100%;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  border-spacing: 0;
+  grid-row-gap: 0;
+  grid-gap: 0;
+}
 .big_title{
-  text-shadow: 1px 1px 1px black;
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  top: 0;
+  margin-top: 0;
+  left: 0;
+  right: 0;
   text-align: center;
   font-family: Pacifico;
   font-size: 60px;
+  text-shadow: 1px 1px 1px black;
   color: $safety_orange;
 }
 .queen{
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: auto;
-  top: 72%;
+  position: relative;
+  display: flex;
 
-  height: 11em;
+  text-align: center;
+  margin: auto;
+  width: 30%;
 }
 
+.last_row{
+  position: absolute;
+  bottom: 0;
+}

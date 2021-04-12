@@ -1,19 +1,40 @@
 <ion-content [fullscreen]="true">
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Pacifico">
-  <ion-header>
-    <div id="title">
-      <img src="assets/crown.svg" class="logo" >
-      <h1 class="big_title">Crown</h1>
-    </div>
-  </ion-header>
 
+
+  <ion-grid >
+    <ion-row class="premier_row">
+      <ion-col>
+        <img src="assets/crown.svg"  class="logo" >
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h1 class="big_title">Crown</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
         <div id="menu">
           <ion-button class="bouttons" expand="block" size="large" fill="outline" color="danger" [routerLink]="['/selection']" (click)="play_woosh()">Jouer</ion-button>
           <ion-button class="bouttons" expand="block" size="large" fill="outline" color="danger" [routerLink]="['/selection_score']" (click)="play_woosh()">Classement</ion-button>
           <ion-button class="bouttons" expand="block" size="large" fill="outline" color="danger" (click)="import_click()">Importer</ion-button>
           <ion-button class="bouttons" expand="block" size="large" fill="outline" color="danger" (click)="option_click()">Options</ion-button>
         </div>
-  <img src="assets/queen_borderless.svg" class="queen">
+      </ion-col>
+    </ion-row>
+    <ion-row class="last_row">
+      <ion-col>
+        <div>
+          <img src="assets/queen_borderless.svg" class="queen">
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+
 
 </ion-content>
